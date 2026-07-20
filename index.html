@@ -3,149 +3,361 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OptiEYE VAR Lite - AI-Assisted Football Referee System</title>
+    <title>OptiEye VAR Lite - India's Indigenous AI Football Officiating</title>
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Animate On Scroll (AOS) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
+        /* CORE VARIABLES & RESET */
         :root {
-            --primary-green: #0a5c36;
-            --dark-blue: #0b1a2e;
-            --light-bg: #f4f7f6;
+            --dark-bg: #040810; /* Deep tech dark */
+            --dark-card: #0b1222; /* Card dark */
+            --primary-green: #0a5c36; /* Brochure Green */
+            --accent-green: #22c55e; /* Bright Green for UI */
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-main: 'Poppins', sans-serif;
+            --font-heading: 'Space Grotesk', sans-serif;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        html { scroll-behavior: smooth; font-size: 16px; }
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            line-height: 1.6; 
-            margin: 0; 
-            padding: 0; 
-            color: #333; 
-            background-color: var(--light-bg);
+            background-color: var(--dark-bg); 
+            color: var(--text-main); 
+            font-family: var(--font-main); 
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
         }
-        header {
-            background-color: var(--dark-blue);
-            color: white;
-            text-align: center;
-            padding: 3rem 1rem;
-            border-bottom: 5px solid var(--primary-green);
+
+        /* UTILITIES */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; color: var(--white); }
+        p { color: var(--text-muted); line-height: 1.8; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        
+        .accent-text { color: var(--accent-green); }
+        .section-title { font-size: 2.5rem; text-align: center; margin-bottom: 1rem; }
+        .section-subtitle { text-align: center; max-width: 600px; margin: 0 auto 4rem; }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-family: var(--font-heading);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
         }
-        header h1 { margin: 0; font-size: 2.5rem; color: #fff; }
-        header p { font-size: 1.2rem; color: #a9c2c9; max-width: 800px; margin: 10px auto 0; }
-        .badge {
-            display: inline-block;
+
+        .btn-primary {
             background-color: var(--primary-green);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(10, 92, 54, 0.4);
         }
-        .container { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
-        .video-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(10, 92, 54, 0.6);
+            background-color: var(--accent-green);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border-color: rgba(255,255,255,0.2);
+        }
+        .btn-secondary:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-color: var(--white);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            position: relative;
+            background: radial-gradient(circle at center, #0f2a4a 0%, var(--dark-bg) 70%);
+        }
+        .hero-content { z-index: 10; max-width: 900px; }
+        
+        .made-in-india {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.05);
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
             margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: var(--white);
         }
-        .video-container { 
-            position: relative; 
-            padding-bottom: 56.25%; 
-            height: 0; 
-            overflow: hidden; 
-            border-radius: 8px;
-            margin-top: 20px;
+        .flag-accent {
+            width: 12px; height: 12px; border-radius: 50%;
+            background: linear-gradient(to right, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%);
         }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+        .hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.03em; }
+        .hero p { font-size: 1.25rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .hero-btns { display: flex; gap: 20px; justify-content: center; }
+
+        /* VIDEO DEMO SECTION - CENTRAL REQ */
+        .demo-video { padding: 8rem 0; background-color: var(--dark-card); position: relative; }
+        .video-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+            border: 4px solid var(--primary-green);
+            position: relative;
+            z-index: 5;
+            transition: var(--transition);
+        }
+        .video-wrapper:hover { transform: scale(1.01); box-shadow: 0 30px 70px rgba(34, 197, 94, 0.2); }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        .card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary-green);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        .iframe-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .iframe-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+        /* Dynamic Glow behind video */
+        .video-glow {
+            position: absolute; width: 100%; height: 100%;
+            top: 0; left: 0;
+            background: radial-gradient(circle at center, rgba(34, 197, 94, 0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: 1;
         }
-        .card h3 { margin-top: 0; color: var(--dark-blue); }
+
+        /* FEATURES SECTION (GRID) */
+        .features { padding: 8rem 0; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         
-        .specs-list {
-            background: var(--dark-blue);
-            color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-top: 2rem;
+        .feature-card {
+            background-color: var(--dark-card);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: var(--transition);
+            position: relative; overflow: hidden;
         }
-        .specs-list h2 { color: var(--primary-green); border-bottom: 1px solid #1f3a5f; padding-bottom: 10px; }
-        .specs-list ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 15px; }
-        .specs-list li { width: calc(50% - 15px); background: #152b47; padding: 10px; border-radius: 5px; }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-green);
+            background-color: #0d172a;
+        }
+        .feature-card i { font-size: 2.5rem; color: var(--accent-green); margin-bottom: 1.5rem; display: inline-block; }
+        .feature-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
         
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #e2e8e6;
-            margin-top: 3rem;
-            color: #555;
+        /* Subtle green hover line at bottom */
+        .feature-card::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px;
+            background-color: var(--accent-green); transition: var(--transition);
+        }
+        .feature-card:hover::after { width: 100%; }
+
+        /* STATS/SPECS STRIP (HIGHLY PROFESSIONAL) */
+        .stats-strip {
+            background: linear-gradient(135deg, var(--primary-green) 0%, #15803d 100%);
+            padding: 4rem 0;
+            color: var(--white);
+        }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
+        .stat-item h4 { font-size: 3rem; font-weight: 800; color: var(--white); line-height: 1; }
+        .stat-item p { color: rgba(255,255,255,0.8); font-weight: 500; font-family: var(--font-heading); margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;}
+
+        /* CONTACT/CTA SECTION */
+        .contact { padding: 8rem 0; text-align: center; background-color: var(--dark-card); }
+        .contact-content { max-width: 600px; margin: 0 auto; }
+        .contact-content h2 { font-size: 3rem; margin-bottom: 1.5rem; }
+        .contact-content p { margin-bottom: 3rem; font-size: 1.1rem; }
+        
+        .leads-info { display: flex; gap: 30px; justify-content: center; margin-top: 4rem; text-align: left;}
+        .lead { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);}
+        .lead h5 { font-family: var(--font-main); color: var(--white); font-weight: 600; margin-bottom: 5px;}
+        .lead p { font-size: 0.9rem; color: var(--accent-green); font-weight: 600; font-family: var(--font-heading);}
+
+        /* FOOTER */
+        footer { padding: 3rem 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+        footer p { font-size: 0.9rem; }
+        .govt-affiliation { margin-top: 1rem; color: rgba(255,255,255,0.6); font-size: 0.8rem; }
+
+        /* RESPONSIVE MEDIA QUERIES */
+        @media (max-width: 1024px) {
+            html { font-size: 15px; }
+            .hero h1 { font-size: 3.5rem; }
+        }
+        @media (max-width: 768px) {
+            html { font-size: 14px; }
+            .hero h1 { font-size: 2.8rem; }
+            .section-title { font-size: 2.2rem; }
+            .hero-btns { flex-direction: column; gap: 15px; align-items: center; }
+            .leads-info { flex-direction: column; gap: 15px; align-items: center; text-align: center;}
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <span class="badge">Proudly Made In India</span>
-        <h1>OptiEYE VAR Lite</h1>
-        <p>India's First Affordable AI-Assisted Football Video Assistant Referee System. Empowering fair play with indigenous technology.</p>
-    </header>
-
-    <div class="container">
-        <!-- DEMO VIDEO SECTION -->
-        <div class="video-section">
-            <h2>System Demonstration</h2>
-            <p>Watch OptiEYE VAR Lite in action, featuring our ultra-low latency review system and AI-assisted multi-angle analysis.</p>
-            <div class="video-container">
-                <!-- Replace YOUR_VIDEO_ID with your YouTube Unlisted video ID -->
-                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-content">
+            <!-- Animated Badge -->
+            <div class="made-in-india" data-aos="fade-down" data-aos-delay="100">
+                <div class="flag-accent"></div> Indigenous Innovation • Made In India
+            </div>
+            
+            <!-- Animated Title -->
+            <h1 data-aos="fade-up" data-aos-delay="300">OptiEye VAR Lite<br> <span class="accent-text">Affordable</span> Football Technology</h1>
+            
+            <!-- Animated Subtitle -->
+            <p data-aos="fade-up" data-aos-delay="500">India's first AI-assisted Video Assistant Referee system. Bringing professional accuracy and fair play to every league, academy, and tournament across the nation.</p>
+            
+            <!-- Animated Buttons -->
+            <div class="hero-btns" data-aos="fade-up" data-aos-delay="700">
+                <a href="#demo" class="btn btn-primary"><i class="fas fa-play"></i> Watch System Demo</a>
+                <a href="OptiEYE-Brochure.pdf" target="_blank" class="btn btn-secondary"><i class="fas fa-file-pdf"></i> Download Brochure</a>
             </div>
         </div>
+    </section>
 
-        <!-- KEY HIGHLIGHTS -->
-        <h2>Why Choose OptiEYE VAR Lite?</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>IFAB Protocol Compliant</h3>
-                <p>Engineered to handle the core VAR interventions: Goal / No Goal, Penalty / No Penalty, Direct Red Cards, and Mistaken Identity.</p>
-            </div>
-            <div class="card">
-                <h3>AI-Powered Analytics</h3>
-                <p>Smart detection and automation utilizing 5 strategically placed Broadcast Cameras (4K ready) for zero blind spots and offside verification.</p>
-            </div>
-            <div class="card">
-                <h3>Rapid Deployment</h3>
-                <p>Compact, portable equipment in custom flight cases. Complete stadium setup and camera calibration in under 2 hours.</p>
-            </div>
-            <div class="card">
-                <h3>Cost-Effective Solution</h3>
-                <p>Broadcast-quality review capabilities optimized for Indian infrastructure, making professional technology affordable for youth, semi-pro, and professional leagues.</p>
+    <!-- DEMO VIDEO SECTION - CENTRAL SHOWCASE -->
+    <section id="demo" class="demo-video">
+        <div class="video-glow"></div>
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">System In Action</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">See how OptiEye VAR Lite processes multi-angle 4K feeds with ultra-low latency for instant, accurate decision support.</p>
+            
+            <!-- Highly Animated Video Player Wrapper -->
+            <div class="video-wrapper" data-aos="zoom-in-up" data-aos-delay="400" data-aos-duration="1000">
+                <div class="iframe-container">
+                    <!-- CRUCIAL: Replace YOUR_YOUTUBE_ID below -->
+                    <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_ID?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- TECHNICAL SPECS -->
-        <div class="specs-list">
-            <h2>Technical Specifications</h2>
-            <ul>
-                <li><strong>Hardware:</strong> Ryzen 9 / RTX 4090 VAR Server Array</li>
-                <li><strong>Cameras:</strong> 5x Blackmagic Studio Camera 4K Pro G2</li>
-                <li><strong>Latency:</strong> &lt; 200 ms Real-Time Processing</li>
-                <li><strong>Transmission:</strong> Fiber Optic Network</li>
-                <li><strong>Review Station:</strong> Ergonomic Multi-View Monitors & Control Console</li>
-                <li><strong>Communication:</strong> Full-Duplex Encrypted Pro Referee Comm System</li>
-            </ul>
+    <!-- KEY FEATURES SECTION (GRID WITH AOS) -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Indigenous Advantage</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">Engineered specifically for the unique infrastructure challenges of Indian football.</p>
+            
+            <div class="features-grid">
+                <!-- Feature 1: AI-Powered -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-brain"></i>
+                    <h3>AI-Assisted Analysis</h3>
+                    <p>Proprietary algorithms provide smart detection, offside verification, and automatic event tagging for the VAR team.</p>
+                </div>
+
+                <!-- Feature 2: Low Latency -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Ultra-Low Latency</h3>
+                    <p>With processing speeds under <span class="accent-text">200ms</span>, reviews are instantaneous, ensuring minimal disruption to match flow.</p>
+                </div>
+
+                <!-- Feature 3: Scalable -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                    <h3>Rapid Deployment</h3>
+                    <p>Modular, compact hardware allows full stadium setup, calibration, and system check in under <span class="accent-text">2 hours</span>.</p>
+                </div>
+
+                <!-- Feature 4: Cost Effective -->
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="700">
+                    <i class="fas fa-rupee-sign"></i>
+                    <h3>Affordable Solution</h3>
+                    <p>Broadcast-grade VAR technology at a fraction of international costs, optimized for state leagues and academies.</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
+    <!-- STATS/SPECS STRIP (PROFESSIONAL COUNT-UP ANIMATION SIMULATION) -->
+    <section class="stats-strip">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                    <h4>5</h4>
+                    <p>4K Broadcast Cameras</p>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                    <h4>&lt;200ms</h4>
+                    <p>Processing Latency</p>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="500">
+                    <h4>100%</h4>
+                    <p>Indian Innovation</p>
+                </div>
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="700">
+                    <h4>IFAB</h4>
+                    <p>Protocol Compliant</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT/FINAL CTA SECTION -->
+    <section class="contact">
+        <div class="container contact-content">
+            <h2 class="section-title" data-aos="fade-up">Ready for Kickoff?</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Elevate the standard of integrity in your league. Contact our specialized Indian support team for a tailored implementation plan, technical requirements, or pricing inquiries.</p>
+            
+            <div data-aos="fade-up" data-aos-delay="400">
+                <a href="mailto:rouhin.ganguly@example.com?subject=OptiEye%20VAR%20Lite%20Inquiry" class="btn btn-primary btn-lg">
+                    <i class="fas fa-envelope"></i> Contact Sales Team
+                </a>
+            </div>
+
+            <!-- Professional Leads Info from Brochure -->
+            <div class="leads-info" data-aos="fade-up" data-aos-delay="600">
+                <div class="lead">
+                    <h5>Rouhin Ganguly</h5>
+                    <p>+91 9330999904</p>
+                </div>
+                <div class="lead">
+                    <h5>Paromita Banerjee</h5>
+                    <p>+91 9382014037</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <p><strong>Developed & Assembled in India</strong></p>
-        <p>Prepared for the Department of Sports, Government of West Bengal</p>
-        <p>Project Leads: Rouhin Ganguly & Paromita Banerjee</p>
-        <p>Contact: +91 9330999904 / +91 9382014037</p>
+        <div class="container">
+            <p>&copy; 2026 OptiEye VAR Lite. Affordable Football Technology for Every League.</p>
+            <p class="govt-affiliation">Prepared for the Department of Sports, Government of West Bengal</p>
+        </div>
     </footer>
+
+    <!-- AOS (Animate On Scroll) JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS with professional settings
+        AOS.init({
+            duration: 800, // Speed of animation
+            easing: 'ease-out-cubic', // Smooth easing
+            once: true, // Whether animation should happen only once - while scrolling down
+            offset: 50, // Offset (in px) from the original trigger point
+        });
+    </script>
 
 </body>
 </html>
