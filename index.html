@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiEYE VAR Lite - AI-Assisted Football Referee System</title>
+    <style>
+        :root {
+            --primary-green: #0a5c36;
+            --dark-blue: #0b1a2e;
+            --light-bg: #f4f7f6;
+        }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            margin: 0; 
+            padding: 0; 
+            color: #333; 
+            background-color: var(--light-bg);
+        }
+        header {
+            background-color: var(--dark-blue);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            border-bottom: 5px solid var(--primary-green);
+        }
+        header h1 { margin: 0; font-size: 2.5rem; color: #fff; }
+        header p { font-size: 1.2rem; color: #a9c2c9; max-width: 800px; margin: 10px auto 0; }
+        .badge {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
+        .video-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .video-container { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden; 
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-green);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .card h3 { margin-top: 0; color: var(--dark-blue); }
+        
+        .specs-list {
+            background: var(--dark-blue);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        .specs-list h2 { color: var(--primary-green); border-bottom: 1px solid #1f3a5f; padding-bottom: 10px; }
+        .specs-list ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 15px; }
+        .specs-list li { width: calc(50% - 15px); background: #152b47; padding: 10px; border-radius: 5px; }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #e2e8e6;
+            margin-top: 3rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="badge">Proudly Made In India</span>
+        <h1>OptiEYE VAR Lite</h1>
+        <p>India's First Affordable AI-Assisted Football Video Assistant Referee System. Empowering fair play with indigenous technology.</p>
+    </header>
+
+    <div class="container">
+        <!-- DEMO VIDEO SECTION -->
+        <div class="video-section">
+            <h2>System Demonstration</h2>
+            <p>Watch OptiEYE VAR Lite in action, featuring our ultra-low latency review system and AI-assisted multi-angle analysis.</p>
+            <div class="video-container">
+                <!-- Replace YOUR_VIDEO_ID with your YouTube Unlisted video ID -->
+                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- KEY HIGHLIGHTS -->
+        <h2>Why Choose OptiEYE VAR Lite?</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>IFAB Protocol Compliant</h3>
+                <p>Engineered to handle the core VAR interventions: Goal / No Goal, Penalty / No Penalty, Direct Red Cards, and Mistaken Identity.</p>
+            </div>
+            <div class="card">
+                <h3>AI-Powered Analytics</h3>
+                <p>Smart detection and automation utilizing 5 strategically placed Broadcast Cameras (4K ready) for zero blind spots and offside verification.</p>
+            </div>
+            <div class="card">
+                <h3>Rapid Deployment</h3>
+                <p>Compact, portable equipment in custom flight cases. Complete stadium setup and camera calibration in under 2 hours.</p>
+            </div>
+            <div class="card">
+                <h3>Cost-Effective Solution</h3>
+                <p>Broadcast-quality review capabilities optimized for Indian infrastructure, making professional technology affordable for youth, semi-pro, and professional leagues.</p>
+            </div>
+        </div>
+
+        <!-- TECHNICAL SPECS -->
+        <div class="specs-list">
+            <h2>Technical Specifications</h2>
+            <ul>
+                <li><strong>Hardware:</strong> Ryzen 9 / RTX 4090 VAR Server Array</li>
+                <li><strong>Cameras:</strong> 5x Blackmagic Studio Camera 4K Pro G2</li>
+                <li><strong>Latency:</strong> &lt; 200 ms Real-Time Processing</li>
+                <li><strong>Transmission:</strong> Fiber Optic Network</li>
+                <li><strong>Review Station:</strong> Ergonomic Multi-View Monitors & Control Console</li>
+                <li><strong>Communication:</strong> Full-Duplex Encrypted Pro Referee Comm System</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Developed & Assembled in India</strong></p>
+        <p>Prepared for the Department of Sports, Government of West Bengal</p>
+        <p>Project Leads: Rouhin Ganguly & Paromita Banerjee</p>
+        <p>Contact: +91 9330999904 / +91 9382014037</p>
+    </footer>
+
+</body>
+</html>
