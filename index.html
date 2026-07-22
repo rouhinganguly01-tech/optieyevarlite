@@ -144,8 +144,7 @@
 
         /* GRID LAYOUTS (Features & Interventions) */
         .bg-card-section { background-color: var(--dark-card); border-top: 1px solid rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.02); }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 30px; }
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
         
         .info-card {
@@ -270,7 +269,6 @@
         <div class="container">
             <div class="video-wrapper" data-aos="zoom-in-up" data-aos-duration="1000">
                 <div class="iframe-container">
-                    <!-- YouTube Video ID embedded here -->
                     <iframe src="https://www.youtube.com/embed/w8JoirCWJL8?rel=0&amp;showinfo=0" allowfullscreen></iframe>
                 </div>
             </div>
@@ -398,14 +396,14 @@
     <!-- WHEN DOES VAR INTERVENE (IFAB RULES) -->
     <section class="section-padding">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">IFAB Compliant Interventions</h2>
+            <h2 class="section-title" data-aos="fade-up">Match Interventions</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">OptiEYE VAR Lite strictly adheres to international protocols, intervening only for critical match-changing situations.</p>
             
             <div class="grid-4">
                 <div class="info-card" data-aos="fade-up" data-aos-delay="100" style="text-align: center; padding: 2rem 1rem;">
                     <i class="fas fa-futbol"></i>
                     <h3>Goal / No Goal</h3>
-                    <p style="font-size: 0.9rem;">To check if the goal was scored fairly, including offside and ball-out-of-play checks.</p>
+                    <p style="font-size: 0.9rem;">To check if the goal was scored fairly, verifying ball-out-of-play and attacking phase fouls.</p>
                 </div>
                 <div class="info-card" data-aos="fade-up" data-aos-delay="200" style="text-align: center; padding: 2rem 1rem;">
                     <i class="fas fa-exclamation-circle"></i>
@@ -422,6 +420,14 @@
                     <h3>Mistaken Identity</h3>
                     <p style="font-size: 0.9rem;">To ensure the correct player is penalized and sanctioned with a card by the referee.</p>
                 </div>
+                
+                <!-- NEW OFFSIDE CHECK CARD -->
+                <div class="info-card" data-aos="fade-up" data-aos-delay="500" style="text-align: center; padding: 2rem 1rem;">
+                    <i class="fas fa-ruler-combined"></i>
+                    <h3>Offside Check</h3>
+                    <p style="font-size: 0.9rem;">To accurately detect offside positions using AI-assisted virtual lines and multi-angle synchronization.</p>
+                </div>
+                <!-- END NEW CARD -->
             </div>
         </div>
     </section>
